@@ -1,0 +1,54 @@
+﻿apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    field.cattle.io/creatorId: user-c95jf
+    field.cattle.io/ingressState: '{"aGFyYm9yLmRldm9wcy1jb250aW5lbnMudGVjaC9zZXJ2aWFuLy8vLzMwMDA=":""}'
+  creationTimestamp: "2020-12-18T07:07:41Z"
+  generation: 2
+  labels:
+    cattle.io/creator: norman
+  managedFields:
+  - apiVersion: networking.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:loadBalancer:
+          f:ingress: {}
+    manager: nginx-ingress-controller
+    operation: Update
+    time: "2020-12-18T07:08:41Z"
+  - apiVersion: extensions/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:field.cattle.io/creatorId: {}
+          f:field.cattle.io/ingressState: {}
+        f:labels:
+          .: {}
+          f:cattle.io/creator: {}
+      f:spec:
+        f:backend:
+          .: {}
+          f:serviceName: {}
+          f:servicePort: {}
+    manager: Go-http-client
+    operation: Update
+    time: "2020-12-18T07:12:51Z"
+  name: harbor.devops-continens.tech
+  namespace: servian
+  resourceVersion: "40365186"
+  selfLink: /apis/extensions/v1beta1/namespaces/servian/ingresses/harbor.devops-continens.tech
+  uid: cec6537b-ff87-4ea0-8a25-f0326c1ff0fd
+spec:
+  backend:
+    serviceName: todo-app
+    servicePort: 3000
+status:
+  loadBalancer:
+    ingress:
+    - ip: 192.168.20.31
+    - ip: 192.168.20.41
+    - ip: 192.168.20.51

@@ -1,0 +1,73 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    field.cattle.io/targetWorkloadIds: '["deployment:servian:todo-app"]'
+    workload.cattle.io/targetWorkloadIdNoop: "true"
+    workload.cattle.io/workloadPortBased: "true"
+  creationTimestamp: "2020-12-18T07:11:42Z"
+  labels:
+    cattle.io/creator: norman
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:field.cattle.io/targetWorkloadIds: {}
+          f:workload.cattle.io/targetWorkloadIdNoop: {}
+          f:workload.cattle.io/workloadPortBased: {}
+        f:labels:
+          .: {}
+          f:cattle.io/creator: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"e1f5644d-13f0-44e2-a978-65377065e374"}:
+            .: {}
+            f:apiVersion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:spec:
+        f:ports:
+          .: {}
+          k:{"port":3000,"protocol":"TCP"}:
+            .: {}
+            f:name: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:workload.user.cattle.io/workloadselector: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: rancher
+    operation: Update
+    time: "2020-12-18T07:11:42Z"
+  name: todo-app
+  namespace: servian
+  ownerReferences:
+  - apiVersion: apps/v1beta2
+    controller: true
+    kind: deployment
+    name: todo-app
+    uid: e1f5644d-13f0-44e2-a978-65377065e374
+  resourceVersion: "40364663"
+  selfLink: /api/v1/namespaces/servian/services/todo-app
+  uid: 6ff3bf6f-04cc-4025-a050-0d889fb5e68f
+spec:
+  clusterIP: 10.43.233.133
+  ports:
+  - name: todo-app-svc
+    port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    workload.user.cattle.io/workloadselector: deployment-servian-todo-app
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

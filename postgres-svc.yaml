@@ -1,0 +1,92 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    field.cattle.io/ipAddresses: "null"
+    field.cattle.io/publicEndpoints: '[{"addresses":["192.168.20.31"],"port":30242,"protocol":"TCP","serviceName":"servian:postgres","allNodes":true}]'
+    field.cattle.io/targetDnsRecordIds: "null"
+    field.cattle.io/targetWorkloadIds: '["deployment:servian:postgres"]'
+    workload.cattle.io/targetWorkloadIdNoop: "true"
+    workload.cattle.io/workloadPortBased: "true"
+  creationTimestamp: "2020-12-18T01:56:30Z"
+  labels:
+    cattle.io/creator: norman
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:field.cattle.io/publicEndpoints: {}
+          f:field.cattle.io/targetWorkloadIds: {}
+          f:workload.cattle.io/targetWorkloadIdNoop: {}
+          f:workload.cattle.io/workloadPortBased: {}
+        f:labels:
+          .: {}
+          f:cattle.io/creator: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"4e1681cc-f354-428f-a459-5ce2683e1658"}:
+            .: {}
+            f:apiVersion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:spec:
+        f:ports: {}
+        f:selector:
+          .: {}
+          f:workload.user.cattle.io/workloadselector: {}
+        f:sessionAffinity: {}
+    manager: rancher
+    operation: Update
+    time: "2020-12-18T02:27:59Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:field.cattle.io/ipAddresses: {}
+          f:field.cattle.io/targetDnsRecordIds: {}
+      f:spec:
+        f:externalTrafficPolicy: {}
+        f:ports:
+          k:{"port":5432,"protocol":"TCP"}:
+            .: {}
+            f:name: {}
+            f:nodePort: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:type: {}
+    manager: Go-http-client
+    operation: Update
+    time: "2020-12-18T02:30:39Z"
+  name: postgres
+  namespace: servian
+  ownerReferences:
+  - apiVersion: apps/v1beta2
+    controller: true
+    kind: deployment
+    name: postgres
+    uid: 4e1681cc-f354-428f-a459-5ce2683e1658
+  resourceVersion: "40247640"
+  selfLink: /api/v1/namespaces/servian/services/postgres
+  uid: 26c24295-dd05-43e6-86c7-592ef7deece8
+spec:
+  clusterIP: 10.43.189.162
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: postgres-tcp
+    nodePort: 30242
+    port: 5432
+    protocol: TCP
+    targetPort: 5432
+  selector:
+    workload.user.cattle.io/workloadselector: deployment-servian-postgres
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

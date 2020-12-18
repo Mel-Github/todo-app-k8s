@@ -1,0 +1,262 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "6"
+    field.cattle.io/creatorId: user-c95jf
+    field.cattle.io/publicEndpoints: '[{"addresses":["192.168.20.31"],"port":30242,"protocol":"TCP","serviceName":"servian:postgres","allNodes":true}]'
+  creationTimestamp: "2020-12-18T01:56:30Z"
+  generation: 7
+  labels:
+    cattle.io/creator: norman
+    workload.user.cattle.io/workloadselector: deployment-servian-postgres
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:field.cattle.io/publicEndpoints: {}
+    manager: rancher
+    operation: Update
+    time: "2020-12-18T02:27:59Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:field.cattle.io/creatorId: {}
+        f:labels:
+          .: {}
+          f:cattle.io/creator: {}
+          f:workload.user.cattle.io/workloadselector: {}
+      f:spec:
+        f:progressDeadlineSeconds: {}
+        f:replicas: {}
+        f:revisionHistoryLimit: {}
+        f:selector:
+          f:matchLabels:
+            .: {}
+            f:workload.user.cattle.io/workloadselector: {}
+        f:strategy:
+          f:rollingUpdate:
+            .: {}
+            f:maxSurge: {}
+            f:maxUnavailable: {}
+          f:type: {}
+        f:template:
+          f:metadata:
+            f:annotations:
+              .: {}
+              f:cattle.io/timestamp: {}
+              f:field.cattle.io/ports: {}
+              f:field.cattle.io/publicEndpoints: {}
+            f:labels:
+              .: {}
+              f:workload.user.cattle.io/workloadselector: {}
+          f:spec:
+            f:containers:
+              k:{"name":"postgres"}:
+                .: {}
+                f:env:
+                  .: {}
+                  k:{"name":"POSTGRES_DB"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                f:envFrom: {}
+                f:image: {}
+                f:imagePullPolicy: {}
+                f:livenessProbe:
+                  .: {}
+                  f:failureThreshold: {}
+                  f:initialDelaySeconds: {}
+                  f:periodSeconds: {}
+                  f:successThreshold: {}
+                  f:tcpSocket:
+                    .: {}
+                    f:port: {}
+                  f:timeoutSeconds: {}
+                f:name: {}
+                f:ports:
+                  .: {}
+                  k:{"containerPort":5432,"protocol":"TCP"}:
+                    .: {}
+                    f:containerPort: {}
+                    f:name: {}
+                    f:protocol: {}
+                f:readinessProbe:
+                  .: {}
+                  f:failureThreshold: {}
+                  f:initialDelaySeconds: {}
+                  f:periodSeconds: {}
+                  f:successThreshold: {}
+                  f:tcpSocket:
+                    .: {}
+                    f:port: {}
+                  f:timeoutSeconds: {}
+                f:resources: {}
+                f:securityContext:
+                  .: {}
+                  f:allowPrivilegeEscalation: {}
+                  f:privileged: {}
+                  f:readOnlyRootFilesystem: {}
+                  f:runAsNonRoot: {}
+                f:stdin: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+                f:tty: {}
+                f:volumeMounts:
+                  .: {}
+                  k:{"mountPath":"/var/lib/postgresql/data"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+            f:dnsPolicy: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:terminationGracePeriodSeconds: {}
+            f:volumes:
+              .: {}
+              k:{"name":"postgres-service"}:
+                .: {}
+                f:name: {}
+                f:persistentVolumeClaim:
+                  .: {}
+                  f:claimName: {}
+    manager: Go-http-client
+    operation: Update
+    time: "2020-12-18T05:42:49Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:deployment.kubernetes.io/revision: {}
+      f:status:
+        f:availableReplicas: {}
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Progressing"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+        f:observedGeneration: {}
+        f:readyReplicas: {}
+        f:replicas: {}
+        f:updatedReplicas: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2020-12-18T05:43:59Z"
+  name: postgres
+  namespace: servian
+  resourceVersion: "40327708"
+  selfLink: /apis/apps/v1/namespaces/servian/deployments/postgres
+  uid: 4e1681cc-f354-428f-a459-5ce2683e1658
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: deployment-servian-postgres
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        cattle.io/timestamp: "2020-12-18T05:42:49Z"
+        field.cattle.io/ports: '[[{"containerPort":5432,"dnsName":"postgres","kind":"ClusterIP","name":"postgres-tcp","protocol":"TCP","sourcePort":5432}]]'
+        field.cattle.io/publicEndpoints: '[{"addresses":["192.168.20.31"],"allNodes":true,"port":30242,"protocol":"TCP","serviceId":"servian:postgres"}]'
+      creationTimestamp: null
+      labels:
+        workload.user.cattle.io/workloadselector: deployment-servian-postgres
+    spec:
+      containers:
+      - env:
+        - name: POSTGRES_DB
+          value: app
+        envFrom:
+        - secretRef:
+            name: postgres-db
+        image: postgres
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 2
+          successThreshold: 1
+          tcpSocket:
+            port: 5432
+          timeoutSeconds: 2
+        name: postgres
+        ports:
+        - containerPort: 5432
+          name: postgres-tcp
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 2
+          successThreshold: 2
+          tcpSocket:
+            port: 5432
+          timeoutSeconds: 2
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: false
+          runAsNonRoot: false
+        stdin: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        tty: true
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: postgres-service
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: postgres-service
+        persistentVolumeClaim:
+          claimName: postgres-service
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2020-12-18T01:56:30Z"
+    lastUpdateTime: "2020-12-18T05:43:41Z"
+    message: ReplicaSet "postgres-86957b4bfb" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2020-12-18T05:43:59Z"
+    lastUpdateTime: "2020-12-18T05:43:59Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 7
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
