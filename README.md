@@ -39,5 +39,4 @@ spec:
 * kubectl todo-app.yaml
 * kubectl postgres-svc.yaml
 * kubectl todo-app-svc.yaml
-* todo-app-ingress.yaml
 
